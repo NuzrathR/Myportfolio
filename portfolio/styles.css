@@ -10,7 +10,11 @@
   --border: rgba(60, 111, 180, 0.45);
   --radius: 20px;
 }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+  scroll-snap-type: y mandatory;
+}
 body {
   font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   color: var(--text);
@@ -44,7 +48,9 @@ body {
 .section {
   max-width: 1100px; margin: 0 auto; padding: 5rem 1.5rem;
   position: relative;
-  min-height: 80vh;
+  min-height: 100vh;
+  scroll-snap-stop: always;
+  scroll-snap-align: start;
 }
 .section::before {
   content: '';
