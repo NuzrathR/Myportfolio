@@ -2,16 +2,422 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>F.N Rauff Portfolio</title>
-    <!-- FontAwesome icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-1kZFAZ0Q8k2v73f2wtwZ1qvG2YpDgOqKDheCEHTsJVsS4v+edeMhP9cWz7W6ryQJ7G7q1PnBzv0I4bCL6rq5Bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script type="module" crossorigin src="/assets/index-f3r83TCZ.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-7OqHFlB1.css">
+    
+    <!-- Page Title & Description -->
+    <title>F.N. Rauff | Software Engineering Student & Developer</title>
+    <meta name="description" content="Portfolio of F.N. Rauff - Software Engineering student, problem solver, and aspiring developer. Explore projects in web development, Java, Python, and more." />
+    <meta name="keywords" content="software engineer, web developer, developer portfolio, Java, Python, JavaScript, React, HTML, CSS, open source, Sri Lanka" />
+    <meta name="author" content="F.N. Rauff" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#3b82f6" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://fnrauff.dev/" />
+    <meta property="og:title" content="F.N. Rauff | Software Engineer & Developer" />
+    <meta property="og:description" content="Portfolio of F.N. Rauff - Software Engineering student, problem solver, and aspiring developer. Explore projects in web development, Java, Python, and more." />
+    <meta property="og:image" content="https://fnrauff.dev/myphoto.jpeg" />
+    <meta property="og:site_name" content="F.N. Rauff Portfolio" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://fnrauff.dev/" />
+    <meta name="twitter:title" content="F.N. Rauff | Software Engineer & Developer" />
+    <meta name="twitter:description" content="Portfolio of F.N. Rauff - Software Engineering student, problem solver, and aspiring developer." />
+    <meta name="twitter:image" content="https://fnrauff.dev/myphoto.jpeg" />
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "F.N. Rauff",
+      "url": "https://fnrauff.dev/",
+      "image": "https://fnrauff.dev/myphoto.jpeg",
+      "description": "Software Engineering student, problem solver, and aspiring developer",
+      "birthPlace": "Sri Lanka",
+      "jobTitle": "Software Engineer",
+      "sameAs": [
+        "https://github.com/NuzrathR",
+        "https://linkedin.com/in/fathima-nuzrath-rauff"
+      ],
+      "email": "fnuzrathtech@gmail.com",
+      "telephone": "+94743348253"
+    }
+    </script>
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://fnrauff.dev/" />
+    
+    <!-- Preconnect to CDNs -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" />
+    <link rel="preconnect" href="https://unpkg.com" />
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <style>
+      /* Dark Mode (Default) */
+      :root {
+        --bg: #040a14;
+        --bg-soft: #091225;
+        --text: #f0f6ff;
+        --text-muted: #a3b9d2;
+        --accent: #3b82f6;
+        --accent2: #6ee7b7;
+      }
+
+      body {
+        background: radial-gradient(circle at 20% 5%, #1a2a4b 0%, #0a1322 40%, #040a14 100%);
+        color: var(--text);
+      }
+
+      .text-glow {
+        animation: textGlow 3s infinite alternate;
+      }
+      @keyframes textGlow {
+        from { text-shadow: 0 0 8px rgba(59,130,246,0.6), 0 0 14px rgba(110,231,183,0.5); }
+        to { text-shadow: 0 0 18px rgba(59,130,246,0.8), 0 0 30px rgba(110,231,183,0.8); }
+      }
+      .floating { animation: floating 5s ease-in-out infinite; }
+      @keyframes floating { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+      .fadeup { opacity: 0; transform: translateY(20px) scale(0.96); }
+      .fadeup-visible { animation: fadeSlideUp 0.8s ease forwards; }
+      @keyframes fadeSlideUp { to { opacity: 1; transform: translateY(0) scale(1); } }
+      .fadeup-delay-1 { animation-delay: .2s; }
+      .fadeup-delay-2 { animation-delay: .35s; }
+      .fadeup-delay-3 { animation-delay: .5s; }
+      .fadeup-delay-4 { animation-delay: .65s; }
+      .fadeup-delay-5 { animation-delay: .8s; }
+      .navbar-anim { opacity: 0; transform: translateY(-12px) scale(0.98); animation: fadeSlideUp 0.6s ease forwards .2s; }
+      #mobile-menu { opacity: 0; transform: translateY(-8px); transition: opacity 0.25s ease, transform 0.25s ease; }
+      #mobile-menu.mobile-open { opacity: 1; transform: translateY(0); }
+      .card, .project-card, .resume-card, .contact-grid article { transform: translateY(20px) scale(0.96); opacity: 0; }
+      .stagger-visible .card, .stagger-visible .project-card, .stagger-visible .resume-card, .stagger-visible .contact-grid article { animation: scaleIn 0.45s ease forwards; }
+      .stagger-visible .card:nth-child(1), .stagger-visible .project-card:nth-child(1), .stagger-visible .resume-card:nth-child(1), .stagger-visible .contact-grid article:nth-child(1) { animation-delay: 0.15s; }
+      .stagger-visible .card:nth-child(2), .stagger-visible .project-card:nth-child(2), .stagger-visible .resume-card:nth-child(2), .stagger-visible .contact-grid article:nth-child(2) { animation-delay: 0.25s; }
+      .stagger-visible .card:nth-child(3), .stagger-visible .project-card:nth-child(3), .stagger-visible .resume-card:nth-child(3), .stagger-visible .contact-grid article:nth-child(3) { animation-delay: 0.35s; }
+      .stagger-visible .card:nth-child(4), .stagger-visible .project-card:nth-child(4), .stagger-visible .resume-card:nth-child(4), .stagger-visible .contact-grid article:nth-child(4) { animation-delay: 0.45s; }
+      .stagger-visible .card:nth-child(5), .stagger-visible .project-card:nth-child(5), .stagger-visible .resume-card:nth-child(5), .stagger-visible .contact-grid article:nth-child(5) { animation-delay: 0.55s; }
+      @keyframes scaleIn { to { opacity: 1; transform: translateY(0) scale(1); } }
+      .nav-links a { transition: all 0.3s ease; }
+      .nav-links a.active { color: #10b981; text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 6px; }
+      #mobile-menu a.active { background: rgba(16, 185, 129, 0.2); color: #10b981; }
+      
+      /* Section Heading Hover Effects */
+      section h2 {
+        position: relative;
+        transition: all 0.3s ease;
+      }
+      section h2:hover {
+        color: #10b981;
+        text-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+        transform: translateX(8px);
+      }
+      section h2::after {
+        content: '';
+        position: absolute;
+        left: -4px;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: linear-gradient(180deg, #3b82f6, #10b981);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+        opacity: 0;
+      }
+      section h2:hover::after {
+        opacity: 1;
+        left: -12px;
+      }
+      
+      /* Card Hover Effects */
+      .rounded-xl { transition: all 0.3s ease; }
+      .rounded-xl:hover {
+        border-color: #10b981 !important;
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.3) !important;
+      }
+      
+      /* Navbar Link Hover Glow */
+      .nav-links a:hover {
+        color: #10b981;
+        text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+      }
+      
+      /* Skill Badge Hover */
+      .grid > span {
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+      .grid > span:hover {
+        border-color: #10b981 !important;
+        background-color: rgba(16, 185, 129, 0.15) !important;
+        transform: scale(1.05) translateY(-3px);
+        box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+      }
+      
+      /* Text Hover Effects */
+      section p {
+        transition: all 0.3s ease;
+      }
+      section p:hover {
+        color: #6ee7b7;
+        text-shadow: 0 0 15px rgba(110, 231, 183, 0.4);
+        letter-spacing: 0.5px;
+      }
+      
+      section h3 {
+        transition: all 0.3s ease;
+      }
+      section h3:hover {
+        color: #10b981;
+        text-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+        transform: translateX(4px);
+      }
+      
+      article h3 {
+        transition: all 0.3s ease;
+      }
+      article h3:hover {
+        color: #10b981;
+        text-shadow: 0 0 12px rgba(16, 185, 129, 0.4);
+      }
+      
+      article p {
+        transition: all 0.3s ease;
+      }
+      article p:hover {
+        color: #a3b9d2;
+        text-shadow: 0 0 12px rgba(163, 185, 210, 0.3);
+      }
+      
+      /* Link Hover in Cards */
+      article a {
+        transition: all 0.3s ease;
+      }
+      article a:hover {
+        color: #10b981;
+        text-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+        transform: translateX(3px);
+      }
+    </style>
   </head>
-  <body>
-    <div id="root"></div>
+  <body class="ready">
+    <nav class="navbar-anim sticky top-0 z-50 w-full bg-slate-900/75 backdrop-blur border-b border-sky-500/20">
+      <div class="mx-auto flex max-w-6xl items-center justify-between p-4">
+        <div class="text-xl font-extrabold tracking-wide bg-gradient-to-r from-sky-400 to-emerald-300 bg-clip-text text-transparent">F.N. Rauff</div>
+        <button id="mobile-menu-btn" class="inline-flex items-center gap-2 rounded-lg border border-slate-700 bg-slate-800/80 px-3 py-2 text-slate-200 transition hover:bg-slate-700 md:hidden" aria-label="Toggle navigation">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          Menu
+        </button>
+        <ul class="hidden gap-4 text-slate-300 md:flex">
+          <li><a class="hover:text-white hover:underline" href="#about">About</a></li>
+          <li><a class="hover:text-white hover:underline" href="#skills">Skills</a></li>
+          <li><a class="hover:text-white hover:underline" href="#projects">Projects</a></li>
+          <li><a class="hover:text-white hover:underline" href="#resume">Resume</a></li>
+          <li><a class="hover:text-white hover:underline" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div id="mobile-menu" class="fixed inset-0 z-40 hidden bg-slate-950/85 p-4 backdrop-blur md:hidden">
+      <div class="mx-auto flex h-full max-w-sm flex-col justify-center gap-4 rounded-xl border border-slate-700 bg-slate-900/90 p-5">
+        <button id="mobile-menu-close" class="self-end rounded-md border border-slate-600 px-3 py-2 text-slate-100 hover:bg-slate-700">Close</button>
+        <a class="block rounded-lg bg-slate-800/75 p-3 text-center text-lg font-semibold text-white hover:bg-slate-700" href="#about">About</a>
+        <a class="block rounded-lg bg-slate-800/75 p-3 text-center text-lg font-semibold text-white hover:bg-slate-700" href="#skills">Skills</a>
+        <a class="block rounded-lg bg-slate-800/75 p-3 text-center text-lg font-semibold text-white hover:bg-slate-700" href="#projects">Projects</a>
+        <a class="block rounded-lg bg-slate-800/75 p-3 text-center text-lg font-semibold text-white hover:bg-slate-700" href="#resume">Resume</a>
+        <a class="block rounded-lg bg-slate-800/75 p-3 text-center text-lg font-semibold text-white hover:bg-slate-700" href="#contact">Contact</a>
+      </div>
+    </div>
+
+    <header id="home" class="hero mx-auto grid min-h-[calc(100vh-4rem)] max-w-6xl grid-cols-1 items-center gap-10 p-6 md:grid-cols-2 md:p-12">
+      <div class="hero-text max-w-lg space-y-4">
+        <p class="text-base font-semibold text-cyan-300">👋 Hi, I'm</p>
+        <h1 class="text-4xl font-bold text-white md:text-6xl text-glow">F.N. <span class="text-cyan-300">Rauff</span></h1>
+        <p class="text-slate-300">Software Engineering Student · Internship Seeker · Problem Solver</p>
+        <a class="inline-block rounded-full bg-gradient-to-r from-sky-500 to-teal-400 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-cyan-500/30 transition hover:-translate-y-1 hover:shadow-xl" href="resume.pdf" download>📄 Download Resume</a>
+      </div>
+      <div class="hero-image mx-auto overflow-hidden rounded-2xl border-4 border-sky-500/90 shadow-2xl shadow-slate-900/50">
+        <img src="/assets/profile-Dh0rslwp.jpg" alt="F.N Rauff" class="floating aspect-square w-full object-cover" onerror="this.onerror=null; this.src='https://via.placeholder.com/340?text=F.N.+Rauff&bg=3b82f6&fg=ffffff';" />
+      </div>
+    </header>
+
+    <main class="space-y-20 px-6 py-8 md:px-10">
+      <section id="about" class="fadeup fadeup-1 rounded-2xl bg-slate-900/70 p-8 shadow-2xl shadow-slate-900/50 backdrop-blur" data-aos="fade-up" data-aos-delay="120" data-aos-offset="200" data-aos-once="true">
+        <h2 class="mb-4 text-3xl font-bold text-white">About me</h2>
+        <p class="mb-4 text-slate-300">I am an IT fresher with a strong academic background, skilled in implementing solutions and working with a variety of tools and technologies. I am eager to find a solid platform where I can grow professionally and enhance my IT skills through real-world experience.</p>
+        <p class="text-slate-300">A highly motivated learner, I quickly understand new concepts and technical ideas. I also have a solid foundation in web development and a strong interest in building creative, innovative applications.</p>
+        <div class="mt-6 grid gap-4 md:grid-cols-2">
+            <article class="rounded-xl border border-sky-500/25 bg-slate-800/70 p-4 transition hover:-translate-y-1 hover:shadow-xl" data-aos="zoom-in" data-aos-delay="100"><h3 class="mb-2 text-lg font-semibold text-emerald-300">🎨 Web design</h3><p class="text-slate-300">Modern, professional UI and user experience design.</p></article>
+          <article class="rounded-xl border border-sky-500/25 bg-slate-800/70 p-4 transition hover:-translate-y-1 hover:shadow-xl" data-aos="zoom-in" data-aos-delay="150"><h3 class="mb-2 text-lg font-semibold text-emerald-300">💻 Web development</h3><p class="text-slate-300">High-quality web projects built in team environments.</p></article>
+        </div>
+      </section>
+
+      <section id="skills" class="fadeup fadeup-2 rounded-2xl bg-slate-900/70 p-8 shadow-2xl shadow-slate-900/50 backdrop-blur" data-aos="fade-up" data-aos-delay="180" data-aos-offset="200" data-aos-once="true">
+        <h2 class="mb-4 text-3xl font-bold text-white">Skills</h2>
+        <div class="grid gap-3 sm:grid-cols-2 md:grid-cols-4">
+          <span class="rounded-xl border border-sky-500/30 bg-slate-800/70 px-4 py-2 text-center font-semibold text-slate-100" data-aos="zoom-in" data-aos-delay="120">🏗️ HTML</span>
+          <span class="rounded-xl border border-sky-500/30 bg-slate-800/70 px-4 py-2 text-center font-semibold text-slate-100" data-aos="zoom-in" data-aos-delay="150">🎨 CSS</span>
+          <span class="rounded-xl border border-sky-500/30 bg-slate-800/70 px-4 py-2 text-center font-semibold text-slate-100" data-aos="zoom-in" data-aos-delay="180">⚡ JavaScript</span>
+          <span class="rounded-xl border border-sky-500/30 bg-slate-800/70 px-4 py-2 text-center font-semibold text-slate-100" data-aos="zoom-in" data-aos-delay="210">🐍 Python</span>
+          <span class="rounded-xl border border-sky-500/30 bg-slate-800/70 px-4 py-2 text-center font-semibold text-slate-100" data-aos="zoom-in" data-aos-delay="240">☕ Java</span>
+          <span class="rounded-xl border border-sky-500/30 bg-slate-800/70 px-4 py-2 text-center font-semibold text-slate-100" data-aos="zoom-in" data-aos-delay="270">🗄️ SQL</span>
+          <span class="rounded-xl border border-sky-500/30 bg-slate-800/70 px-4 py-2 text-center font-semibold text-slate-100" data-aos="zoom-in" data-aos-delay="300">⚛️ React</span>
+          <span class="rounded-xl border border-sky-500/30 bg-slate-800/70 px-4 py-2 text-center font-semibold text-slate-100" data-aos="zoom-in" data-aos-delay="330">🟢 Node.js</span>
+        </div>
+      </section>
+
+      <section id="projects" class="fadeup fadeup-3 rounded-2xl bg-slate-900/70 p-8 shadow-2xl shadow-slate-900/50 backdrop-blur" data-aos="fade-up" data-aos-delay="220" data-aos-offset="200" data-aos-once="true">
+        <h2 class="mb-4 text-3xl font-bold text-white">Projects</h2>
+        <div class="grid gap-4 md:grid-cols-3">
+          <article class="rounded-xl border border-sky-500/25 bg-slate-800/70 p-4 transition hover:-translate-y-1 hover:shadow-xl">
+            <h3 class="mb-2 text-xl font-semibold text-cyan-300">Zoo Website</h3>
+            <p class="mb-2 text-slate-300 font-semibold">HTML · CSS</p>
+            <p class="text-slate-300">A learning project for a module using Vue.js, HTML, CSS, JS.</p>
+            <a class="mt-3 inline-block font-bold text-emerald-300 hover:text-emerald-200" href="https://github.com/NuzrathR/zoo-website" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+          </article>
+          <article class="rounded-xl border border-sky-500/25 bg-slate-800/70 p-4 transition hover:-translate-y-1 hover:shadow-xl">
+            <h3 class="mb-2 text-xl font-semibold text-cyan-300">Library Management System</h3>
+            <p class="mb-2 text-slate-300 font-semibold">HTML · CSS · MySQL · PHP</p>
+            <p class="text-slate-300">Module project with frontend and backend in PHP/SQL.</p>
+            <a class="mt-3 inline-block font-bold text-emerald-300 hover:text-emerald-200" href="https://github.com/NuzrathR/library-management-system" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+          </article>
+          <article class="rounded-xl border border-sky-500/25 bg-slate-800/70 p-4 transition hover:-translate-y-1 hover:shadow-xl">
+            <h3 class="mb-2 text-xl font-semibold text-cyan-300">CYBERTEK Car Repair</h3>
+            <p class="mb-2 text-slate-300 font-semibold">C#</p>
+            <p class="text-slate-300">NVQ Level 5 application with C# and SQL Server.</p>
+            <a class="mt-3 inline-block font-bold text-emerald-300 hover:text-emerald-200" href="https://github.com/NuzrathR/CYBERTEK_Car_Repair" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="resume" class="fadeup fadeup-4 rounded-2xl bg-slate-900/70 p-8 shadow-2xl shadow-slate-900/50 backdrop-blur" data-aos="fade-up" data-aos-delay="260" data-aos-offset="200" data-aos-once="true">
+        <h2 class="mb-4 text-3xl font-bold text-white">Resume</h2>
+        <div class="grid gap-4 md:grid-cols-2">
+          <article class="rounded-xl border border-sky-500/25 bg-slate-800/70 p-4 transition hover:-translate-y-1 hover:shadow-xl">
+            <h3 class="mb-3 text-2xl font-semibold text-emerald-300">📖 Education</h3>
+            <ul class="space-y-2 text-slate-300">
+              <li><strong>Open University of Sri Lanka</strong> (2022–Present): Reading B.Sc. Software Eng. Hons</li>
+              <li><strong>Vocational Training Authority</strong> (2019): NVQ Level 5 Diploma in ICT</li>
+              <li><strong>Maradana Technical College</strong> (2017): NVQ Level 4 Certificate in ICT</li>
+            </ul>
+          </article>
+          <article class="rounded-xl border border-sky-500/25 bg-slate-800/70 p-4 transition hover:-translate-y-1 hover:shadow-xl">
+            <h3 class="mb-3 text-2xl font-semibold text-emerald-300">💼 Experience</h3>
+            <ul class="space-y-2 text-slate-300">
+              <li><strong>Ceylon Electricity Board</strong> (2022) 06 Months – JavaScript · HTML · Linux · MySQL · ITIL V4 · CSS</li>
+              <li><strong>Sri Lanka Ports Authority</strong> (2020) 06 Months – PHP · HTML · CSS</li>
+              <li><strong>Ministry of Housing & Social Welfare</strong> (2017–2018) One Year – Leadership · Microsoft Office Skills</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="fadeup fadeup-5 rounded-2xl bg-slate-900/70 p-8 shadow-2xl shadow-slate-900/50 backdrop-blur" data-aos="fade-up" data-aos-delay="300" data-aos-offset="200" data-aos-once="true">
+        <h2 class="mb-4 text-3xl font-bold text-white">Contact Me</h2>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="rounded-xl border border-sky-500/25 bg-slate-800/70 p-4 transition hover:-translate-y-1 hover:shadow-xl"><h3 class="text-lg font-semibold text-cyan-300">📧 Email</h3><a class="text-emerald-300 hover:text-emerald-200" href="mailto:fnuzrathtech@gmail.com?subject=Portfolio Inquiry">fnuzrathtech@gmail.com</a></article>
+          <article class="rounded-xl border border-sky-500/25 bg-slate-800/70 p-4 transition hover:-translate-y-1 hover:shadow-xl"><h3 class="text-lg font-semibold text-cyan-300">☎️ Call</h3><a class="text-emerald-300 hover:text-emerald-200" href="tel:0743348253"> Take a Call </a></article>
+          <article class="rounded-xl border border-sky-500/25 bg-slate-800/70 p-4 transition hover:-translate-y-1 hover:shadow-xl"><h3 class="text-lg font-semibold text-cyan-300">💬 WhatsApp</h3><a class="text-emerald-300 hover:text-emerald-200" href="https://wa.me/94743348253" target="_blank" rel="noopener noreferrer">Message</a></article>
+          <article class="rounded-xl border border-sky-500/25 bg-slate-800/70 p-4 transition hover:-translate-y-1 hover:shadow-xl"><h3 class="text-lg font-semibold text-cyan-300">🔗 LinkedIn</h3><a class="text-emerald-300 hover:text-emerald-200" href="https://linkedin.com/in/fathima-nuzrath-rauff" target="_blank" rel="noopener noreferrer">Profile</a></article>
+          <article class="rounded-xl border border-sky-500/25 bg-slate-800/70 p-4 transition hover:-translate-y-1 hover:shadow-xl"><h3 class="text-lg font-semibold text-cyan-300">🐙 GitHub</h3><a class="text-emerald-300 hover:text-emerald-200" href="https://github.com/NuzrathR" target="_blank" rel="noopener noreferrer">Repos</a></article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="fadeup mt-10 rounded-t-3xl bg-slate-900/70 p-6 text-center text-slate-400 shadow-inner shadow-slate-900/40">
+      <p>Copyright © 2026 F.N. Rauff</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 900,
+        easing: 'ease-out-cubic',
+        once: true,
+        mirror: false,
+        offset: 160
+      });
+    </script>
+
+    <script>
+      window.addEventListener('load', () => {
+        document.body.classList.add('ready');
+
+        const mobileMenu = document.getElementById('mobile-menu');
+        const openBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('mobile-menu-close');
+
+        const setMenuOpen = (open) => {
+          if (!mobileMenu) return;
+          if (open) {
+            mobileMenu.classList.remove('hidden');
+            requestAnimationFrame(() => mobileMenu?.classList.add('mobile-open'));
+          } else {
+            mobileMenu.classList.remove('mobile-open');
+            setTimeout(() => mobileMenu?.classList.add('hidden'), 250);
+          }
+        };
+
+        openBtn?.addEventListener('click', () => setMenuOpen(true));
+        closeBtn?.addEventListener('click', () => setMenuOpen(false));
+
+        mobileMenu?.addEventListener('click', (event) => {
+          if (event.target === mobileMenu) {
+            setMenuOpen(false);
+          }
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach((link) => {
+          link.addEventListener('click', () => setMenuOpen(false));
+        });
+
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('fadeup-visible');
+              entry.target.classList.add('fadeup-delay-' + (Array.from(sections).indexOf(entry.target) + 1));
+              entry.target.classList.add('stagger-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.3 });
+
+        sections.forEach((section) => {
+          section.classList.add('fadeup');
+          observer.observe(section);
+        });
+
+        // Active Section Highlight
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const mobileNavLinks = document.querySelectorAll('#mobile-menu a');
+        const allNavLinks = document.querySelectorAll('.nav-links a, #mobile-menu a');
+        
+        const sectionObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              allNavLinks.forEach((link) => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + entry.target.id) {
+                  link.classList.add('active');
+                }
+              });
+            }
+          });
+        }, { threshold: 0.5 });
+
+        sections.forEach((section) => {
+          sectionObserver.observe(section);
+        });
+      });
+    </script>
   </body>
 </html>
 
